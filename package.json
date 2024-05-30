@@ -1,0 +1,21 @@
+{
+  "name": "serverest-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run --browser chrome",
+    "start": "npx serverest -y",
+    "reports": "npx cypress run --record --key 54555e87-6276-4539-838b-b4658ba8731d"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.10.0"
+  },
+  "devDependencies": {
+    "allure-commandline": "^2.29.0",
+    "allure-cypress": "^2.15.1"
+  }
+}

@@ -1,0 +1,17 @@
+[
+    {
+        "nome": "Fulano da Silva",
+        "email": "fulanodasilva21@qa.com",
+        "senha": "teste"
+    },
+    {
+        "nome": "Ismael Lehner",
+        "email": "ismaellehner@test.com",
+        "senha": "Test;123"
+    },
+    {
+        "nome": "Robin Rowe",
+        "email": "robinrowe@test.com",
+        "senha": "Test;123"
+    }
+]
