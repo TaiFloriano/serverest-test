@@ -7,6 +7,7 @@ module.exports = {
       allureCypress(on);
     },
     baseUrl: 'https://front.serverest.dev/',
+    video: true,
     chromeWebSecurity: false,
     projectId: "krevvz",
     env: {

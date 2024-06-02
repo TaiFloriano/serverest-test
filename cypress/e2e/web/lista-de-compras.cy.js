@@ -4,13 +4,14 @@ describe ('Funcionalidade: Lista de compras', () => {
 
  
     beforeEach(() => {
-        cy.visit('https://front.serverest.dev/login')
-        cy.get('[data-testid="email"]').clear().type ('fulano@qa.com')
-        cy.get('[data-testid="senha"]').clear().type ('teste')
-        cy.get('[data-testid="entrar"]').click()
-        cy.wait(10000)
+       cy.login('taitest1717208775661@qa.com', 'teste')
       });
 
-      it ('Validar ')
+      it('Validar entrada na lista de produtos', () => {
+        cy.visit('minhaListaDeProdutos')
+        cy.get('h1').should('contain', 'Lista de Compras')
+        cy.url().should('contain', 'minhaListaDeProdutos')     
+      
+      });
       
     });

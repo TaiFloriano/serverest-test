@@ -25,14 +25,32 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 
-Cypress.Commands.add('login', (email, senha) => { 
+Cypress.Commands.add('login', (email, senha) => {
     cy.visit('login')
-    cy.get('[data-testid="email"]').clear().type (email)
-    cy.get('[data-testid="senha"]').clear().type (senha)
+    cy.get('[data-testid="email"]').clear().type(email)
+    cy.get('[data-testid="senha"]').clear().type(senha)
     cy.get('[data-testid="entrar"]').click()
- })
+    cy.wait(1000)
+})
 
- Cypress.Commands.add('token', (email, senha) => { 
+Cypress.Commands.add('cadastroUsuarioComum', (nome, email, senha, admin) => {
+    cy.visit('cadastrarusuarios')
+    cy.get('[data-testid="nome"]',).clear().type(nome)
+    cy.get('[data-testid="email"]').clear().type(email)
+    cy.get('[data-testid="password"]').clear().type(senha)
+    cy.get('[data-testid="cadastrar"]').click()
+})
+
+Cypress.Commands.add('cadastroUsuarioAdmin', (nome, email, senha, admin) => {
+    cy.visit('cadastrarusuarios')
+    cy.get('[data-testid="nome"]',).clear().type(nome)
+    cy.get('[data-testid="email"]').clear().type(email)
+    cy.get('[data-testid="password"]').clear().type(senha)
+    cy.get('[data-testid="checkbox"]').check()
+    cy.get('[data-testid="cadastrar"]').click()
+})
+
+Cypress.Commands.add('token', (email, senha) => {
     cy.request({
         method: 'POST',
         url: 'http://localhost:3000/login',
@@ -40,9 +58,9 @@ Cypress.Commands.add('login', (email, senha) => {
         {
             "email": email,
             "password": senha
-          }
+        }
     }).then(Response => {
         expect(Response.status).to.equal(200)
         return Response.body.authorization
     })
- })
+})
